@@ -51,8 +51,14 @@ UserInfoSchema.statics.staticsFun = function(a,b) {
 UserInfoSchema.methods.instanceFun = function() {
   console.log(this.name); // this指向实例的数据 所以能拿到数据中的name
 }
+/**
+ * 4、定义数据库模型     
+ * tip: 
+ * 1、mongoose默认指向的集合名后面有‘s’如 写User，默认找的users集合 所以如果要找不是加s的 要加第三个参数进行指定（相当于重定向加了该参数后 可以指定为任何集合）
+ * 2、如果没有该集合会创建该集合
+ */
+  
 
-// 4、定义数据库模型       tip: mongoose默认指向的集合名后面有‘s’如 写User，默认找的users集合 所以如果要找不是加s的 要加第三个参数进行指定（相当于重定向加了该参数后 可以指定为任何集合）
 const UserInfoModel = mongoose.model('user_info',UserInfoSchema,'user_info'); 
 
 module.exports = UserInfoModel;
